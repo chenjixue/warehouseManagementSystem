@@ -3,9 +3,15 @@
       [
         "@babel/preset-env",
         {
-          "useBuiltIns": "usage"
+          "useBuiltIns": "usage",                                       //按需引入补丁
+          "corejs": "3.12.1",
+          "targets": ">0.25%, not dead"
         }
-      ],
-      "@babel/preset-react"
+      ]
+      // "@babel/preset-react"
+      // "@babel/preset-typescript"
+    ],
+    "plugins":[
+      "@babel/plugin-transform-runtime"                  //避免全局作用域污染和避免每个文件里面重复定义函数(编译成require避免重复定义，直接编译为方法调用而非挂载在某个对象在原型链下调用，避免照成全局作用域污染)
     ]
   }

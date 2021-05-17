@@ -1,0 +1,13 @@
+{
+    "include":["src/**/*"],
+    "compilerOptions": {
+        "target":"ES6",
+        "lib":["ES6","DOM"],
+        "sourceMap": true,
+        "module": "CommonJS",
+        "allowJs":true,
+        "checkJs": true,
+        "jsx":"react",
+        "esModuleInterop": true
+    }
+}
