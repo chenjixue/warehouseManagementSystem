@@ -22,7 +22,6 @@ const state: gloalState = {
     sowTask:{
         taskList:[]
     },
-    
     user:{
         checkState: false,
         token:'',
