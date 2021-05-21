@@ -21,4 +21,5 @@ const  reducer = combineReducers({
     visualWarehouse,
     warehouseConfig
 })
-let store = createStore(reducer)
+let store = createStore(reducer) 
+export default store

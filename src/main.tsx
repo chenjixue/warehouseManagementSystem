@@ -1,6 +1,10 @@
 
 import React from "react"
 import ReactDom from "react-dom"
-import "./store/index"
+import store from "./store/index"
 import Test from "./components/test"
-ReactDom.render((<Test></Test>),document.getElementById("app"))
+import { Provider } from 'react-redux'
+let a = (<Provider store={store}>
+    <Test></Test>
+   </Provider>)
+ReactDom.render(a,document.getElementById("app"))

@@ -5,7 +5,7 @@ module.exports = {
         index: path.resolve(__dirname, '../src/main.tsx'),
     },
     output: {
-        filename: '[name].[hashCode].bundle.js',
+        filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, '../dist'),
         clean: true
     },
