@@ -67,7 +67,7 @@ const user:(state:user,action:action)=>object = (state:user = gloalState.user,ac
 }
 const userPermission:(state:userPermission,action:action)=>object = (state:userPermission = gloalState.userPermission,action:action={type:"",data:""})=>{
     switch(action.type){
-        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data,getPermission:()=>{})
+        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data,getPermission:()=>{}})
         default: return  state
     }
 }
