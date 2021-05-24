@@ -1,70 +1,126 @@
-import { appConfigInterface,citiesInterface,globalSettingsInterface,searchParamsInterface,
-  sowTaskInterface,userInterface,userPermissionInterface,visualWarehouseInterface,warehouseConfigInterface
-} from "./action"
-let appConfigActions:appConfigInterface ={
-  setAppVersion:(text) => ({type:""}),
-  setDeviceId:(text) => ({type:""}),
-  setDeviceOS:(text) => ({type:""}),
-  getVersionInfo:(text) => ({type:""})
-}
-let  citiesActions:citiesInterface ={
-    setAdministrativeCities:(text) => ({type:""}),
-    updateCitiesOfProvince:(text) => ({type:""}),
-    setBusinessCities:(text) => ({type:""})
-}
-let globalSettingsActions:globalSettingsInterface ={
-     disableLoading:(text) => ({type:""}),
-     enableLoading:(text) => ({type:""}),
-     updateEnvConfig:(text) => ({type:""}),
-     disableFullScreenLoading:(text) => ({type:""}),
-     enableFullScreenLoading:(text) => ({type:""}),
-     getEnvConfig:(text) => ({type:""}),
-}
-let  searchParamsActions:searchParamsInterface ={
-     saveParams:(text) => ({type:""}),
-     delParams:(text) => ({type:""}),
-     saveParamsName:(text) => ({type:""}),
-}
-let  sowTaskActions:sowTaskInterface ={
-     saveTask:(text) => ({type:""}),
-     delTask:(text) => ({type:""}),
-     saveTaskProcess:(text) => ({type:""}),
-     deleteTask:(text) => ({type:""}),
-}
-let   userActions:userInterface={
-  clearUserInfo: (text) => ({type:""}),
-  updateUserToken:(text) => ({type:""}),
-  updateUserInfo:(text) => ({type:""}),
-  updateUserRole:(text) => ({type:""}),
-  updateUserWarehouse:(text) => ({type:""}),
-  updateUserOrg:(text) => ({type:""}),
-  updateRoleInfoList:(text) => ({type:""}),
-  updateOriginRole:(text) => ({type:""}),
-  updateChooseRoleInfoList:(text) => ({type:""}),
-  updateInstalledState:(text) => ({type:""}),
-  updateServiceId:(text) => ({type:""}),
-  updateMessageList:(text) => ({type:""}),
-  updateMessageStatus:(text) => ({type:""}),
+// import { appConfigInterface,citiesInterface,globalSettingsInterface,searchParamsInterface,
+//   sowTaskInterface,userInterface,userPermissionInterface,visualWarehouseInterface,warehouseConfigInterface
+// } from "./createAction"
+import {
+  appConfigCreateActionInterface,
+  citiesCreateActionInterface, globalSettingsCreateActionInterface, searchParamsCreateActionInterface,
+  sowTaskCreateActionInterface, userCreateActionInterface, userPermissionCreateActionInterface, visualWarehouseCreateActionInterface, warehouseConfigCreateActionInterface
+} from "./createAction"
+let appConfigActions: appConfigCreateActionInterface = {
+  setAppVersion: (text:(string|number)) => ({ type: "", appVersion: text }),
+  setDeviceId: (text:(string|number)) => ({ type: "", deviceId: text }),
+  setDeviceOS: (text:(string|number)) => ({ type: "", deviceOS: text }),
   //异步
-  login:(text) => ({type:""}),
-  getUserInfo:(text) => ({type:""}),
-  ssoGetUserInfo:(text) => ({type:""}),
-  getUserInfoSelf:(text) => ({type:""}),
-  confirmPromptChoice:(text) => ({type:""}),
-  logout:(text) => ({type:""}),
-  getInfoMessage:(text) => ({type:""}),
+  getVersionInfo: (text) => (dispatch) => {
+
+  }
 }
-let userPermissionActions:userPermissionInterface={
-  addPermissions:(text) => ({type:""}),
-  getPagePermission:(text) => ({type:""})
+let citiesActions: citiesCreateActionInterface = {
+  setAdministrativeCities: (text:Array<any>) => ({ type: "", administrativeCities: text }),
+  updateCitiesOfProvince: (text: {
+    indexArr: Array<any>,
+    children: Array<any>,
+    [propName: string]: any
+  }) => ({ type: "", obj:text}),
+  setBusinessCities: (text:Array<any>) => ({ type: "", businessCities:text})
 }
-let  visualWarehouseActions:visualWarehouseInterface={
-  saveConfig:(text) => ({type:""}),
-  persistConfig:(text) => ({type:""}),
+let globalSettingsActions: globalSettingsCreateActionInterface = {
+  disableLoading: (text) => ({ type: "" }),
+  enableLoading: (text) => ({ type: "" }),
+  updateEnvConfig: (text:{variableDataObject:any, [propName: string]: any}) => ({ type: "",envConfig:text}),
+  //异步
+  disableFullScreenLoading: (text) => (dispatch) => {
+
+  },
+  enableFullScreenLoading: (text) => (dispatch) => {
+
+  },
+  getEnvConfig: (text) => (dispatch) => {
+
+  }
 }
-let  warehouseConfigActions:warehouseConfigInterface={
-  setFPDSetting:(text) => ({type:""}),
-  setWorkTime:(text) => ({type:""}),
-  getProductionDateSetting:(text) => ({type:""}),
-  getWarehouseWorkTime:(text) => ({type:""}),
+let searchParamsActions: searchParamsCreateActionInterface = {
+  //异步
+  saveParams: (text) => (dispatch) => {
+
+  },
+  delParams: (text) => (dispatch) => {
+
+  },
+  saveParamsName: (text) => (dispatch) => {
+
+  }
+}
+let sowTaskActions: sowTaskCreateActionInterface = {
+  saveTask: (text:object) => ({ type: "",payload:text}),
+  delTask: (text:(string|number)) => ({ type: "",taskNo:text}),
+  //异步
+  saveTaskProcess: (text) => (dispatch) => {
+
+  },
+  deleteTask: (text) => (dispatch) => {
+
+  }
+}
+let userActions: userCreateActionInterface = {
+  clearUserInfo: (text) => ({ type: "" }),
+  updateUserToken: (text:string) => ({ type: "",token:text}),
+  updateUserInfo: (text:string) => ({ type: "",user:text}),
+  updateUserRole: (text:string) => ({ type: "",role:text}),
+  updateUserWarehouse: (text:string) => ({ type: "" ,role:text}),
+  updateUserOrg: (text:string) => ({ type: "",orgId:text }),
+  updateRoleInfoList: (text:Array<number|string>) => ({ type: "",roleList:text }),
+  updateOriginRole: (text:string) => ({ type: "" ,originRole:text}),
+  updateChooseRoleInfoList: (text:string) => ({ type: "" ,roleList:text}),
+  updateInstalledState: (text:string) => ({ type: "" ,choice:text}),
+  updateServiceId: (text:string) => ({ type: "" ,serviceId:text}),
+  updateMessageList: (text:any) => ({ type: "" ,data:text}),
+  updateMessageStatus: (text:object) => ({ type: "" ,data:text}),
+  //异步
+  login: (text) => (dispatch) => {
+
+  },
+  getUserInfo: (text) => (dispatch) => {
+
+  },
+  ssoGetUserInfo: (text) => (dispatch) => {
+
+  },
+  getUserInfoSelf: (text) => (dispatch) => {
+
+  },
+  confirmPromptChoice: (text) => (dispatch) => {
+
+  },
+  logout: (text) => (text) => (dispatch) => {
+
+  },
+  getInfoMessage: (text) => (dispatch) => {
+
+  },
+}
+let userPermissionActions: userPermissionCreateActionInterface = {
+  addPermissions: (text:object) => ({ type: "", data:text}),
+  //异步
+  getPagePermission: (text) => (dispatch) => {
+
+  },
+}
+let visualWarehouseActions: visualWarehouseCreateActionInterface = {
+  saveConfig: (text:object) => ({ type: "",config:text}),
+  //异步
+  persistConfig: (text) => (dispatch) => {
+
+  },
+}
+let warehouseConfigActions: warehouseConfigCreateActionInterface = {
+  setFPDSetting: (text:string) => ({ type: "",forceProductionDate:text}),
+  setWorkTime: (text:string) => ({ type: "",orgWorkTime:text}),
+  //异步
+  getProductionDateSetting: (text) => (dispatch) => {
+
+  },
+  getWarehouseWorkTime: (text) => (dispatch) => {
+
+  },
 }

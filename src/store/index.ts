@@ -9,7 +9,8 @@ import {
     visualWarehouse,
     warehouseConfig,
 } from "./reducer"
-import {combineReducers,createStore} from "redux"
+import ReduxThunk from 'redux-thunk'
+import {combineReducers,createStore,applyMiddleware } from "redux"
 const  reducer = combineReducers({
     appConfig,
     cities,
@@ -21,5 +22,5 @@ const  reducer = combineReducers({
     visualWarehouse,
     warehouseConfig
 })
-let store = createStore(reducer) 
+let store = createStore(reducer,applyMiddleware(ReduxThunk)) 
 export default store

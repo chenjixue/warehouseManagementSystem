@@ -4,7 +4,13 @@ interface action{
     type:string,
     data:any
 }
-const appConfig:(state:appConfig,action:action)=>object = (state:appConfig = gloalState.appConfig,action:action={type:"",data:""})=>{
+interface getSearchParamsData{
+    path:string,
+    userId:string,
+    cityId:string, 
+    warehouseId:string
+}
+const appConfig:(state:appConfig,action:action)=>object = (state:appConfig = gloalState.appConfig,action={type:"",data:""})=>{
     switch(action.type){
         case "appCode": return Object.assign({},state,{appCode:action.data})
         case "appVersion":return Object.assign({},state,{appVersion:action.data})
@@ -31,13 +37,13 @@ const globalSettings:(state:globalSettings,action:action)=>object = (state:globa
 }
 const searchParams:(state:searchParams,action:action)=>object = (state:searchParams =gloalState.searchParams ,action:action={type:"",data:""})=>{
     switch(action.type){
-        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data})
+        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data,getSearchParams:(data:getSearchParamsData)=>{}})
         default: return state
     }
 }
 const sowTask:(state:sowTask,action:action)=>object = (state:sowTask = gloalState.sowTask,action:action={type:"",data:""})=>{
     switch(action.type){
-        case "taskList": return Object.assign({},state,{taskList:action.data})
+        case "taskList": return Object.assign({},state,{taskList:action.data, getTask: ()=>{}})
         default: return state
     }
 }
@@ -61,21 +67,22 @@ const user:(state:user,action:action)=>object = (state:user = gloalState.user,ac
 }
 const userPermission:(state:userPermission,action:action)=>object = (state:userPermission = gloalState.userPermission,action:action={type:"",data:""})=>{
     switch(action.type){
-        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data})
+        case "userSearchPrarams": return Object.assign({},state,{userSearchPrarams:action.data,getPermission:()=>{})
         default: return  state
     }
 }
 const visualWarehouse:(state:visualWarehouse,action:action)=>object = (state:visualWarehouse = gloalState.visualWarehouse ,action:action ={type:"",data:""})=>{
     switch(action.type){
-        case "warehouseList": return Object.assign({},state,{warehouseList:action.data});
+        case "warehouseList": return Object.assign({},state,{warehouseList:action.data,getWarehouseConfig:()=>{}});
         default: return  state
     }
 }
 const warehouseConfig:(state:warehouseConfig,action:action)=>object = (state:warehouseConfig = gloalState.warehouseConfig,action:action ={type:"",data:""})=>{
+     let newState = Object.assign({},state,{getSettingValue:()=>{}})
     switch(action.type){
-        case "forceProductionDate": return Object.assign({},state,{forceProductionDate:action.data})
-        case "orgWorkTime": return Object.assign({},state,{orgWorkTime:action.data});
-        default:  return state
+        case "forceProductionDate": return Object.assign({},newState,{forceProductionDate:action.data})
+        case "orgWorkTime": return Object.assign({},newState,{orgWorkTime:action.data});
+        default:  return newState
     }
 }
 export  {
