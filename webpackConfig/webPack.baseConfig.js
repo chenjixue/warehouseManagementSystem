@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
+    devtool: 'eval-source-map',
     entry: {
         index: path.resolve(__dirname, '../src/main.tsx'),
     },
@@ -45,7 +46,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000,
+        // port: 9111,
         hot: true,
       },
 };

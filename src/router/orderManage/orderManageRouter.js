@@ -1,0 +1,65 @@
+const orderManageRouter = [
+    {
+        path:'/orderList',
+        name:'orderList',
+        meta:{
+            title:'订单列表',
+            keepalive:true
+        },
+        title:'订单列表',
+        component:()=>import('pages/orderManage/commonOrderList')
+        // component:()=>import('pages/orderManage/original')
+    },
+    {
+        path:'/commonOrderConfig',
+        name:'commonOrderConfig',
+        meta:{
+            title:'配置订单列表',
+            keepalive:false
+        },
+        title:'配置订单列表',
+        component:()=>import('pages/orderManage/commonOrderConfig')
+    },
+    {
+        path:'/commonOrderDetail',
+        name:'commonOrderDetail',
+        meta:{
+            title:'订单详情',
+            keepalive:false
+        },
+        title:'订单详情',
+        component:()=>import('pages/orderManage/commonOrderDetail')
+    },
+    {
+        path:'/commonOrderAddSelf',
+        name:'commonOrderAddSelf',
+        meta:{
+            title:'新增订单查询',
+            keepalive:true
+        },
+        title:'新增订单查询',
+        component:()=>import('pages/orderManage/commonOrderAddSelf')
+    },
+    {
+        path:'/commonOrderAdd',
+        name:'commonOrderAdd',
+        meta:{
+            title:'新增订单',
+            keepalive:false
+        },
+        title:'新增订单',
+        component:()=>import('pages/orderManage/commonOrderAdd')
+    },
+    {
+        path:'/orderSplit',
+        name:'orderSplit',
+        meta:{
+            title:'订单拆分',
+            keepalive:false
+        },
+        title:'订单拆分',
+        component:()=>import('pages/orderManage/orderSplit')
+    }
+]
+
+export default orderManageRouter

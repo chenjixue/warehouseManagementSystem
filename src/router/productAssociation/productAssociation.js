@@ -1,0 +1,42 @@
+const produdctAssociation = [
+    {
+        path:'/productComparison',
+        name:'productComparison',
+        meta:{
+            title:'第三方产品对比',
+            keepalive:false
+        },
+        title:'第三方产品对比',
+        component:()=>import('pages/productAssociation/productComparison.vue')
+    },
+    {
+        path:'/threeProductRelation',
+        name:'threeProductRelation',
+        meta:{
+            title:'接口字段配置',
+            keepalive:false
+        },
+        title:'接口字段配置',
+        component:()=>import('pages/productAssociation/threeProductRelation.vue')
+    },
+    {
+        path:'/threeProductRelationDetail',
+        name:'threeProductRelationDetail',
+        meta:{
+            title:'第三方平台产品关系明细',
+            keepalive:false
+        },
+        component:()=>import('pages/productAssociation/threeProductRelationDetail.vue')
+    },
+    {
+        path:'/threeProductRelationAdd',
+        name:'threeProductRelationAdd',
+        meta:{
+            title:'第三方平台产品关系添加',
+            keepalive:false
+        },
+        component:()=>import('pages/productAssociation/threeProductRelationAdd.vue')
+    },
+]
+
+export default produdctAssociation

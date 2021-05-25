@@ -1,0 +1,54 @@
+const zhzgInboundApply = [
+    {
+        path:'/zhzgInboundApplyList',
+        name:'zhzgInboundApplyList',
+        meta:{
+            title:'入库申请管理',
+            keepalive:true
+        },
+        title:'入库申请管理',
+        component:()=>import('pages/zhzgInboundApply/inboundApplyList')
+    },
+    {
+        path:'/zhzgInboundApplyAdd',
+        name:'zhzgInboundApplyAdd',
+        meta:{
+            title:'新建入库申请单',
+            keepalive:false
+        },
+        title:'新建入库申请单',
+        component:()=>import('pages/zhzgInboundApply/inboundApplyAdd')
+    },
+    {
+        path:'/zhzgInboundApplyDetail',
+        name:'zhzgInboundApplyDetail',
+        meta:{
+            title:'入库单详情',
+            keepalive:false
+        },
+        title:'入库单详情',
+        component:()=>import('pages/zhzgInboundApply/inboundApplyDetail')
+    },
+    {
+        path:'/zhzgInboundApplyListSelf',
+        name:'zhzgInboundApplyListSelf',
+        meta:{
+            title:'入库申请修改',
+            keepalive:true
+        },
+        title:'入库申请修改',
+        component:()=>import('pages/zhzgInboundApply/inboundApplyListSelf')
+    },
+    {
+        path:'/zhzgInboundApplyDetailSelf',
+        name:'zhzgInboundApplyDetailSelf',
+        meta:{
+            title:'入库单详情',
+            keepalive:false
+        },
+        title:'入库单详情',
+        component:()=>import('pages/zhzgInboundApply/inboundApplySelf')
+    }
+]
+
+export default zhzgInboundApply
