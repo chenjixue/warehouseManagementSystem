@@ -12,26 +12,44 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template:path.resolve(__dirname, '../public/index.html'),
+            template: path.resolve(__dirname, '../public/index.html'),
         }),
     ],
     resolve: {
-        extensions: ['.tsx', '.ts', '.jsx','.js'],
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
         alias: {
             '@': path.resolve(__dirname, '../src')
         }
     },
-    module:{
-        rules:[
+    module: {
+        rules: [
+            // {
+            //     test: /\.s[ac]ss$/,
+            //     use: ['style-loader', {
+            //         loader: 'css-loader', options: {
+            //             modules: true,
+            //         }
+            //     }, 'sass-loader'],
+            //     exclude: /node_modules/
+            // },
             {
-                test:/\.s[ac]ss$/,
-                use: ['style-loader', 'css-loader','sass-loader'],
-                exclude:/node_modules/
+                test: /\.s[ac]ss$/,
+                use: ['style-loader',  {
+                            loader: 'typings-for-css-modules-loader',
+                            options: {
+                                modules: true,
+                                namedExport: true,
+                                camelCase: true,
+                                minimize: true,
+                                // localIdentName: "[local]_[hash:base64:5]"
+                            }
+                        },'sass-loader'],
+                exclude: /node_modules/
             },
             {
                 test: /\.[jt]sx?$/,
                 exclude: /(node_modules|bower_components)/,
-                use: ["babel-loader","ts-loader"]
+                use: ["babel-loader", "ts-loader"]
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -48,5 +66,5 @@ module.exports = {
         compress: true,
         // port: 9111,
         hot: true,
-      },
+    },
 };

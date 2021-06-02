@@ -5,20 +5,21 @@ import store from "./store/index"
 import Test from "./components/test"
 import { Provider } from 'react-redux'
 import  App   from './router/router'
+import TestApp from "./app"
 import {
   HashRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-window.onhashchange =function(e){
-  let newHashCode = e.newURL.split("#")[1]
-  let url = e.newURL.split("#")[0]
-  // console.log(e.newURL.split("#")[1],"onhashChange")
-  if(newHashCode !== "/login"){
-     window.location.href=`${url}#/login`
-  }
-}
+// window.onhashchange =function(e){
+//   let newHashCode = e.newURL.split("#")[1]
+//   let url = e.newURL.split("#")[0]
+//   // console.log(e.newURL.split("#")[1],"onhashChange")
+//   if(newHashCode !== "/login"){
+//      window.location.href=`${url}#/login`
+//   }
+// }
 const RouteWithSubRoutes  = (route)=>{
   return (
       <Route
@@ -60,6 +61,10 @@ function Cart(){
   return (<div>Cart</div>)
 }
 let routes : Array<any> = [
+        {
+          path:"/app",
+          component:TestApp
+        },
         {
             path: "/sandwiches",
             component: Sandwiches

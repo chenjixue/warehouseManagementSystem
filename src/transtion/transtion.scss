@@ -1,0 +1,9 @@
+/* 入场执行的样式 */
+.fade-enter-active,
+.fade-appear-active {
+    transition: height 5s ;
+}
+/* 出场进行中的的样式 */
+.fade-exit-active {
+    transition: height 5s ;
+}

@@ -1,4 +1,6 @@
 import  React  from "react"
+import { connect } from 'react-redux'
+import stateInterFace from "../../store/state"
 //函数组件使用高阶组件做权限判断
 export function WrapComponent(Components){
     return class  WrapComponent extends React.Component<{btnPermissions:Array<string>,permission:string}>{
@@ -17,7 +19,7 @@ export function WrapComponent(Components){
         }
     }
 }
-//类组件使用注解,做权限判断
+//类组件使用注解,做权限判断 
 export function AuthComponent(target:any){
     return class extends target{
            render(){
@@ -30,3 +32,6 @@ export function AuthComponent(target:any){
            }
     }
 }
+// export default connect((state:stateInterFace)=>({a:state.appConfig.appCode}),(dispatch)=>{
+
+// })()

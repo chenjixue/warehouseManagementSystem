@@ -18,13 +18,13 @@ interface routeObject {
     //     {
     //         path: "/tacos",
     //         routes: [
-    //             {
+    //             {-
     //                 path: "/tacos/bus",
     //                   component: Bus
     //             },
     //             {
     //                 path: "/tacos/cart",
-    //                   component: Cart
+    //                   component: Cart      
     //             }
     //         ]
     //     }
@@ -36,7 +36,6 @@ interface routeObject {
     }
     render() {
         return (<Router>
-                
                 <ConfigRouter config={this.props.routes}/>
             </Router>)
     }

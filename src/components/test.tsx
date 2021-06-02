@@ -7,5 +7,5 @@ let Test:React.FC<{a:any}> = ({a})=>{
 export default connect((state:stateInterFace)=>({
     a:state.appConfig.appCode
 }),(dispatch)=>{
-
+    
 })(Test)
