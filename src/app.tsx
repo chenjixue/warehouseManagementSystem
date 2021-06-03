@@ -2,7 +2,7 @@
 import React ,{useState,FC,useCallback } from "react"
 import  Style from  "./app.scss"
 import { CSSTransition,TransitionGroup} from 'react-transition-group'
-import {Button} from "antd"
+import {Button,Divider} from "antd"
 import "./transtion/transtion.scss"
 function App():React.ReactElement{
     // return (<div className={Style.appPrompt}>
@@ -18,6 +18,9 @@ function App():React.ReactElement{
         setCount(!count);
     }, []);
     return (<div>
+        <Button type="primary" block>
+                        Primarys
+        </Button>
         <CSSTransition
           in={count}
           timeout={1000}
@@ -38,8 +41,12 @@ function App():React.ReactElement{
          >
          <div className={Style.appPrompt}>
                 <div className= {Style.appNotice}>您可以将本系统添加到桌面上，以更方便快捷的方式开展工作哦</div>
+                <Divider plain>Textss</Divider>
                 <div>
-                      <Button type="primary" onClick={onEnter}>添加应用到桌面</Button>
+                      <Button type="link" onClick={onEnter}>添加应用到桌面</Button>
+                      <Button type="primary" block>
+                        Primary
+                      </Button>
                 </div>
             
          </div>

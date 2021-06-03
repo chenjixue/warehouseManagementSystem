@@ -12,6 +12,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+// import '~antd/dist/antd.css';
+
 // window.onhashchange =function(e){
 //   let newHashCode = e.newURL.split("#")[1]
 //   let url = e.newURL.split("#")[0]
